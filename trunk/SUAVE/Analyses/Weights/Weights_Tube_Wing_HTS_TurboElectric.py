@@ -58,13 +58,14 @@ class Weights_Tube_Wing_HTS_TurboElectric(Weights):
         
         self.vehicle  = Data()
         self.settings = Data()
-        self.settings.weight_reduction_factors = Data()
+
         # Reduction factors are proportional (.1 is a 10% weight reduction)
+        self.settings.weight_reduction_factors           = Data()
         self.settings.weight_reduction_factors.main_wing = 0.
         self.settings.weight_reduction_factors.fuselage  = 0.
-        self.settings.weight_reduction_factors.empennage = 0. # applied to horizontal and vertical stabilizers
+        self.settings.weight_reduction_factors.empennage = 0.  # applied to horizontal and vertical stabilizers
         
-    def evaluate(self,conditions=None):
+    def evaluate(self, conditions=None):
         """Evaluate the weight analysis.
     
         Assumptions:
@@ -87,9 +88,8 @@ class Weights_Tube_Wing_HTS_TurboElectric(Weights):
         settings = self.settings
         empty    = SUAVE.Methods.Weights.Correlations.Tube_Wing_HTS_TurboElectric.empty
 
-        
         # evaluate
-        results = empty(vehicle,settings)
+        results = empty(vehicle, settings)
         
         # storing weight breakdown into vehicle
         vehicle.weight_breakdown = results 
@@ -99,8 +99,7 @@ class Weights_Tube_Wing_HTS_TurboElectric(Weights):
               
         # done!
         return results
-    
-    
+
     def finalize(self):
         """Finalize the weight analysis.
     
@@ -122,4 +121,3 @@ class Weights_Tube_Wing_HTS_TurboElectric(Weights):
         self.mass_properties = self.vehicle.mass_properties
         
         return
-        

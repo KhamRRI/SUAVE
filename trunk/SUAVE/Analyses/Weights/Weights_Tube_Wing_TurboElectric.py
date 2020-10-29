@@ -11,7 +11,6 @@ import SUAVE
 from SUAVE.Core import Data
 from .Weights import Weights
 
-
 # ----------------------------------------------------------------------
 #  Analysis
 # ----------------------------------------------------------------------
@@ -58,11 +57,12 @@ class Weights_Tube_Wing_TurboElectric(Weights):
         
         self.vehicle  = Data()
         self.settings = Data()
-        self.settings.weight_reduction_factors = Data()
+
         # Reduction factors are proportional (.1 is a 10% weight reduction)
+        self.settings.weight_reduction_factors           = Data()
         self.settings.weight_reduction_factors.main_wing = 0.
         self.settings.weight_reduction_factors.fuselage  = 0.
-        self.settings.weight_reduction_factors.empennage = 0. # applied to horizontal and vertical stabilizers
+        self.settings.weight_reduction_factors.empennage = 0.  # applied to horizontal and vertical stabilizers
         
     def evaluate(self,conditions=None):
         """Evaluate the weight analysis.
