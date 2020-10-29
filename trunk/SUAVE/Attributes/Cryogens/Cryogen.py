@@ -4,7 +4,6 @@
 # Created:  Feb 2020, K. Hamilton
 
 
-
 # ----------------------------------------------------------------------
 #  Imports
 # ----------------------------------------------------------------------
@@ -44,9 +43,9 @@ class Cryogen(Data):
         None
         """    
         self.tag                       = 'Cryogen'
-        self.density                   = 0.0                       # kg/m^3
-        self.specific_energy           = 0.0                       # MJ/kg
-        self.energy_density            = 0.0                       # MJ/m^3
+        self.density                   = 0.0          # kg/m^3
+        self.specific_energy           = 0.0          # MJ/kg
+        self.energy_density            = 0.0          # MJ/m^3
         self.temperatures              = Data()
-        self.temperatures.freeze       = 0.0                       # K
-        self.temperatures.boiling      = 0.0                       # K
+        self.temperatures.freeze       = 0.0          # K
+        self.temperatures.boiling      = 0.0          # K
