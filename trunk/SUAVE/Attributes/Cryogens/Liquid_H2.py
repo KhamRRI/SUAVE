@@ -1,11 +1,13 @@
 ## @ingroup Attributes-Cryogens
-# Liquid H2
+# Liquid_H2.py
 #
 # Created:  Feb 2020, K. Hamilton
 
 # ----------------------------------------------------------------------
 #  Imports
 # ----------------------------------------------------------------------
+
+# Base Cryogen class
 from .Cryogen import Cryogen
 
 # ----------------------------------------------------------------------
@@ -13,7 +15,7 @@ from .Cryogen import Cryogen
 # ----------------------------------------------------------------------
 ## @ingroup Attributes-Cryogens
 class Liquid_H2(Cryogen):
-    """Holds values for this cryogen
+    """Holds values for the Liquid H2 cryogen.
     
     Assumptions:
     None
@@ -24,7 +26,7 @@ class Liquid_H2(Cryogen):
     """
 
     def __defaults__(self):
-        """This sets the default values.
+        """This sets the default values for the Liquid H2 cryogen.
 
         Assumptions:
         Ambient Pressure
@@ -51,7 +53,8 @@ class Liquid_H2(Cryogen):
         self.specific_heat              =    10.67           # [kJ/kgK]
 
         # Coefficiencts for polynomial fit of Liquid Specific Heat Capacity (C_P) curve.
-        # C_P = CP_C3*T^3 + CP_C2*T^2 + CP_C1*T^1 + CP_C0*T^0 where C_P is Specific Heat Capacity (J/gK) T is temperature (kelvin).
+        # C_P = CP_C3*T^3 + CP_C2*T^2 + CP_C1*T^1 + CP_C0*T^0 where C_P is Specific Heat Capacity (J/gK) T is
+        # temperature (kelvin).
         # Data from NIST Chemistry Webbook. Pressure is 1.295MPa.
         self.LCP_C0                     =   -31.2
         self.LCP_C1                     =     5.56
@@ -62,7 +65,8 @@ class Liquid_H2(Cryogen):
         self.LCP_maxT                   =    30.0              # [K]
 
         # Coefficiencts for polynomial fit of Gas Specific Heat Capacity (C_P) curve.
-        # C_P = CP_C3*T^3 + CP_C2*T^2 + CP_C1*T^1 + CP_C0*T^0 where C_P is Specific Heat Capacity (J/gK) T is temperature (kelvin).
+        # C_P = CP_C3*T^3 + CP_C2*T^2 + CP_C1*T^1 + CP_C0*T^0 where C_P is Specific Heat Capacity (J/gK) T is
+        # temperature (kelvin).
         # Data from NIST Chemistry Webbook. Pressure is 0.01 MPa
         self.GCP_C0                     =   10.3
         self.GCP_C1                     =   -7.39E-03
@@ -92,4 +96,3 @@ class Liquid_H2(Cryogen):
         # Range for which this polynomial fit holds
         self.H_minP                     =     0.02E6         # [Pa]
         self.H_maxP                     =     1.20E6         # [Pa]
-

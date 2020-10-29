@@ -4,6 +4,7 @@
 # Created:  Feb 2020, K. Hamilton
 
 
+
 # ----------------------------------------------------------------------
 #  Imports
 # ----------------------------------------------------------------------
@@ -11,11 +12,11 @@
 from SUAVE.Core import Data
 
 # ----------------------------------------------------------------------
-#  Class
+#  Cryogen Data Class
 # ----------------------------------------------------------------------
 ## @ingroup Attributes-Cryogens
 class Cryogen(Data):
-    """Holds values for a cryogen
+    """Container to store cryogen data
     
     Assumptions:
     None
@@ -31,7 +32,7 @@ class Cryogen(Data):
         None
 
         Source:
-        Values commonly available
+        Values commonly available for specific cryogens
 
         Inputs:
         None
