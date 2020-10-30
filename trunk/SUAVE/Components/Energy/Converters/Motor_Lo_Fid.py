@@ -21,6 +21,8 @@ from SUAVE.Components.Energy.Energy_Component import Energy_Component
 # ----------------------------------------------------------------------
 #  Motor Class
 # ----------------------------------------------------------------------
+
+
 ## @ingroup Components-Energy-Converters
 class Motor_Lo_Fid(Energy_Component):
     """This is a low-fidelity motor component.
@@ -89,8 +91,8 @@ class Motor_Lo_Fid(Energy_Component):
           speed_constant                         [radian/s/V]
         """  
         # Unpack
-        V     = conditions.freestream.velocity[:,0,None]
-        rho   = conditions.freestream.density[:,0,None]
+        V     = conditions.freestream.velocity[:, 0, None]
+        rho   = conditions.freestream.density[:, 0, None]
         Res   = self.resistance
         etaG  = self.gearbox_efficiency
         exp_i = self.expected_current
@@ -99,7 +101,7 @@ class Motor_Lo_Fid(Energy_Component):
         Kv    = self.speed_constant/G
         etam  = self.motor_efficiency
         v     = self.inputs.voltage
-        
+
 
         # Omega
         omega1 = (Kv*v)/2. + (Kv*(Res*Res*io*io - 2.*Res*etam*io*v - 2.*Res*io*v + etam*etam*v*v - 2.*etam*v*v + v*v)**(1./2.))/2. - (Kv*Res*io)/2. + (Kv*etam*v)/2.

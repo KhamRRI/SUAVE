@@ -20,6 +20,8 @@ from SUAVE.Methods.Power.Turboelectric.Discharge import zero_fidelity
 # ----------------------------------------------------------------------
 #  Turboelectric Class
 # ----------------------------------------------------------------------
+
+
 ## @ingroup Components-Energy-Converters
 class Turboelectric(Energy_Component):
     """This is a turboelectic component.
@@ -50,16 +52,16 @@ class Turboelectric(Energy_Component):
         """           
         self.propellant             = Liquid_Natural_Gas()
         self.oxidizer               = Air()
-        self.number_of_engines      = 2.0                   # number of turboelectric machines, not propulsors
-        self.efficiency             = .37                   # Approximate average gross efficiency across the product range.
-        self.volume                 = 2.36    *Units.m**3.  # 3m long from RB211 datasheet. 1m estimated radius.
-        self.rated_power            = 37400.0 *Units.kW
-        self.mass_properties.mass   = 2500.0  *Units.kg     # 2.5 tonnes from Rolls Royce RB211 datasheet 2013.
+        self.number_of_engines      = 2.0                  # number of turboelectric machines, not propulsors
+        self.efficiency             = .37                  # Approximate average gross efficiency across the product range.
+        self.volume                 = 2.36 * Units.m**3.   # 3m long from RB211 datasheet. 1m estimated radius.
+        self.rated_power            = 37400.0 * Units.kW
+        self.mass_properties.mass   = 2500.0 * Units.kg    # 2.5 tonnes from Rolls Royce RB211 datasheet 2013.
+        self.discharge_model        = zero_fidelity        # Simply takes the fuel specific power and applies an efficiency.
         self.specific_power         = self.rated_power/self.mass_properties.mass
         self.mass_density           = self.mass_properties.mass/self.volume
-        self.discharge_model        = zero_fidelity         # Simply takes the fuel specific power and applies an efficiency.
         
-    def energy_calc(self,conditions,numerics):
+    def energy_calc(self, conditions, numerics):
         """This calls the assigned discharge method.
 
         Assumptions:
@@ -79,6 +81,4 @@ class Turboelectric(Energy_Component):
         """           
         
         mdot = self.discharge_model(self, conditions, numerics)
-        return mdot  
-
-    
+        return mdot
