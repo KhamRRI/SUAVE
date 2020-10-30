@@ -20,6 +20,8 @@ from SUAVE.Methods.Cooling.Cryogen.Consumption import Coolant_use
 #  Cryogenic Heat Exchanger Component
 # ----------------------------------------------------------------------
 ## @ingroup Components-Energy-Converters
+
+
 class Cryogenic_Heat_Exchanger(Energy_Component):
     """This provides output values for a heat exchanger used to cool cryogenic components
     
@@ -51,15 +53,18 @@ class Cryogenic_Heat_Exchanger(Energy_Component):
         
         self.tag = 'Cryogenic_Heat_Exchanger'
         
-        #-----setting the default values for the different components
+        # setting the default values for the different components
         self.cryogen                        = SUAVE.Attributes.Cryogens.Liquid_H2()
-        self.cryogen_inlet_temperature      =    300.0      # [K]
-        self.cryogen_outlet_temperature     =    300.0      # [K]
-        self.cryogen_pressure               = 100000.0      # [Pa]
-        self.cryogen_is_fuel                =      0.0      # Proportion of cryogen that is burned as fuel. Assumes the cryogen is the same as the fuel, e.g. that both are hydrogen.
+        self.cryogen_inlet_temperature      = 300.0      # [K]
+        self.cryogen_outlet_temperature     = 300.0      # [K]
+        self.cryogen_pressure               = 100000.0   # [Pa]
+        # Proportion of cryogen that is burned as fuel. Assumes the cryogen is the same as the fuel, e.g. that both are
+        # hydrogen.
+        self.cryogen_is_fuel                = 0.0
     
     def energy_calc(self,cooling_power, conditions):
-        """ This calculates the mass of cryogen required to achieve the desired cooling power given the temperature of the cryogen supplied, and the desired temperature of the cryogenic equipment.
+        """ This calculates the mass of cryogen required to achieve the desired cooling power given the temperature of
+        the cryogen supplied, and the desired temperature of the cryogenic equipment.
 
         Assumptions:
         Perfect thermal conduction of the cryogen to the cooled equipment.
@@ -87,11 +92,10 @@ class Cryogenic_Heat_Exchanger(Energy_Component):
         amb_pressure    = conditions.freestream.pressure
 
         # If the heat exchanger does not vent to ambient, set the system pressure.
-        vent_pressure       = pressure
+        vent_pressure = pressure
 
         # calculate the cryogen mass flow
-        mdot = Coolant_use(cryogen,temp_in,temp_out,cooling_power,vent_pressure)
+        mdot = Coolant_use(cryogen, temp_in, temp_out, cooling_power, vent_pressure)
     
         return mdot
-        
-    
+

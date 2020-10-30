@@ -24,17 +24,17 @@ from SUAVE.Methods.Cooling.Cryocooler.Cooling import cryocooler_model
 class Cryocooler(Energy_Component):
     """
     Cryocooler provides cooling power to cryogenic components.
-    Energy is used by this component to provide the cooling, despite the cooling power provided also being an energy inflow.
+    Energy is used by this component to provide the cooling, despite the cooling power provided also being an
+    energy inflow.
     """
     def __defaults__(self):
         # Initialise cryocooler properties as null values
         self.cooler_type        = 'GM'
-        self.rated_power        =   0.0
-        self.min_cryo_temp      =  77.0
+        self.rated_power        = 0.0
+        self.min_cryo_temp      = 77.0
         self.ambient_temp       = 300.0
         self.cooling_model      = cryocooler_model
 
-        
     def energy_calc(self, cooling_power, cryo_temp, amb_temp):
         # Calculate the instantaneous required energy input
         output = self.cooling_model(self, cooling_power, cryo_temp, amb_temp)
