@@ -16,6 +16,7 @@ from SUAVE.Components.Energy.Energy_Component import Energy_Component
 #  HTS DC Supply Class
 # ----------------------------------------------------------------------
 
+
 ## @ingroup Components-Energy-Distributors
 class HTS_DC_Supply(Energy_Component):
     
@@ -38,7 +39,7 @@ class HTS_DC_Supply(Energy_Component):
             None
             """         
         
-        self.efficiency         =   0.0
+        self.efficiency         = 0.0
         self.rated_current      = 100.0     # [A]
         self.rated_power        = 100.0     # [W]
     
@@ -63,12 +64,12 @@ class HTS_DC_Supply(Energy_Component):
 
         """
         # Unpack
-        efficiency              = self.efficiency
+        efficiency = self.efficiency
 
         # Apply the efficiency of the current supply to get the total power required at the input of the current supply.
-        power_in                = power_out/efficiency
+        power_in = power_out/efficiency
 
-        # # Store output values.
+        # Store output values.
         # self.output.power_in    = power_in
 
         # Return basic result.

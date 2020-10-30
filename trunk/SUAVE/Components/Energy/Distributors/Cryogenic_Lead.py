@@ -16,6 +16,7 @@ from SUAVE.Components.Energy.Energy_Component import Energy_Component
 #  Cryogenic Lead Class
 # ----------------------------------------------------------------------
 
+
 ## @ingroup Components-Energy-Distributors
 class Cryogenic_Lead(Energy_Component):
     
@@ -38,12 +39,12 @@ class Cryogenic_Lead(Energy_Component):
             None
             """         
         
-        self.cold_temp          =   77.0    # [K]
-        self.hot_temp           =  300.0    # [K]
+        self.cold_temp          = 77.0      # [K]
+        self.hot_temp           = 300.0     # [K]
         self.current            = 1000.0    # [A]
-        self.length             =    1.0    # [m]
+        self.length             = 1.0       # [m]
     
-        self.cross_section      =    1.0    # [m2]
+        self.cross_section      = 1.0       # [m2]
         self.optimum_current    = 1000.0    # [A]
         self.minimum_Q          = 1000.0    # [W]
         self.unpowered_Q        = 1000.0    # [W]
