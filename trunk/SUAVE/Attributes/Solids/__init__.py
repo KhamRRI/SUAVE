@@ -1,4 +1,6 @@
 ## @defgroup Attributes-Solids Solids
+# Solids related classes
+# @ingroup Attributes
 
 from .Solid import Solid
 from .Unidirectional_Carbon_Fiber import Unidirectional_Carbon_Fiber
